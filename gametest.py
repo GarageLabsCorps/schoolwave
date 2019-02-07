@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-S
+# -*- coding: utf-8 -*-
 import os,sys,pygame,random,math
 
 def x2d(file):
