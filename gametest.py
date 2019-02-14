@@ -45,9 +45,23 @@ def psd(objs,x,y,screen):
 		image=pygame.image.load(obj)
 		screen.blit(image, (x,y))
 def txt(txt,px,x,y):
-	return screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(txt,False,(0,0,0)),(x,y))
+	if not "\n" in txt:
+		return screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(txt,False,(0,0,0)),(x,y))
+	else:
+		lines=txt.split("\n")
+		i=0
+		for line in lines:
+			screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(line,False,(0,0,0)),(x,y+px*i))
+			i+=1
 def txtw(txt,px,x,y):
-	return screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(txt,False,(255,255,255)),(x,y))
+	if not "\n" in txt:
+		return screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(txt,False,(255,255,255)),(x,y))
+	else:
+		lines=txt.split("\n")
+		i=0
+		for line in lines:
+			screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(line,False,(255,255,255)),(x,y+px*i))
+			i+=1
 def near(x,y):
 	dx=40
 	dy=40
@@ -88,6 +102,9 @@ def talk(who,t):
 	dsqw=ww-isqw # dialog square width
 	br=10        # border
 	pd=10        # padding
+	ts=15        # txt size
+	st=dsqw-pd*2 # space for one line of text
+	cl=int(st/ts)# char for line
 
 	running=True
 	while running:
@@ -95,7 +112,10 @@ def talk(who,t):
 		pygame.draw.rect(screen,(255,255,255),(0,wh-isqh,isqw,isqh))
 		pygame.draw.rect(screen,(0,0,0),(isqw,wh-dsqh-br,dsqw+br,dsqh+br))
 		pygame.draw.rect(screen,(255,255,255),(isqw+br,wh-dsqh,dsqw,dsqh))
-		txt(t,15,isqw+br+pd,wh-dsqh+pd)
+		if len(t)>cl and not "\n" in t:
+			for i in range(len(t)/cl):
+				t=t[:cl*(i+1)]+"\n"+t[cl*(i+1):]
+		txt(t,ts,isqw+br+pd,wh-dsqh+pd)
 		whoimg=pygame.image.load(who)
 		screen.blit(whoimg,(0,wh-isqh))
 		for event in pygame.event.get():
@@ -103,7 +123,6 @@ def talk(who,t):
 				if event.key==pygame.K_RETURN:
 					running=False
 			if event.type==pygame.QUIT:
-				global runningall;runningall=False
 				running=False
 		pygame.display.flip()
 def intro():

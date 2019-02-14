@@ -51,12 +51,17 @@ def txt(txt,px,x,y):
 		lines=txt.split("\n")
 		i=0
 		for line in lines:
-			print line
 			screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(line,False,(0,0,0)),(x,y+px*i))
 			i+=1
 def txtw(txt,px,x,y):
 	if not "\n" in txt:
 		return screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(txt,False,(255,255,255)),(x,y))
+	else:
+		lines=txt.split("\n")
+		i=0
+		for line in lines:
+			screen.blit((pygame.font.Font("font/kongtext.ttf",px)).render(line,False,(255,255,255)),(x,y+px*i))
+			i+=1
 def near(x,y):
 	dx=40
 	dy=40
@@ -107,8 +112,8 @@ def talk(who,t):
 		pygame.draw.rect(screen,(255,255,255),(0,wh-isqh,isqw,isqh))
 		pygame.draw.rect(screen,(0,0,0),(isqw,wh-dsqh-br,dsqw+br,dsqh+br))
 		pygame.draw.rect(screen,(255,255,255),(isqw+br,wh-dsqh,dsqw,dsqh))
-		if len(t)>cl:
-			for i in range(cl):
+		if len(t)>cl and not "\n" in t:
+			for i in range(len(t)/cl):
 				t=t[:cl*(i+1)]+"\n"+t[cl*(i+1):]
 		txt(t,ts,isqw+br+pd,wh-dsqh+pd)
 		whoimg=pygame.image.load(who)
