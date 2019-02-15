@@ -1,33 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vincentmangiolli>
 	<dialog>
-		<d1>Ei, non ti ho mai visto in questa scuola. Sei una scimmia travestita da umano, per caso?</d1>
-		<d2>...</d2>
-		<d3>Ahah, scherzo dai.</d3>
-                <d4>Io sono Mangiolli. Sono un avvocato.</d4>
-		<d5>Non puoi capire quanto mi addolora dovertelo dire, ragazzo.</d5>
-		<d6>Hai sbagliato di grosso a venire in questa scuola.</d6>
-		<d7>Ti hanno tratto in inganno come il pifferaio di Hamelin...</d7>
-		<d8>..il quale dopo aver ipnotizzato i topi con la melodia del suo flauto li portò in mare e li fece affogare.</d8>
-		<d9>Eh, lo so, non è quello che vorresti sentirti dire il primo giorno di scuola.</d9>
-		<d10>Ma ei, prendila con filosofia.</d10>
-		<d11>È dagli errori che si migliora.</d11>
-		<d12>Ci si vede in classe, ragazzo.</d12>
-		</dialog>
+		<d1>Ciao suino!</d1>
+		<d2>'Stu registru nu funziona!</d2>
+		<d3>Lu guaiu ete ca ati abbuccatu, hannu fattu comu lu pifferaiu ca se purtau tutti li surgi intra lu lagu e li 'nfucau.</d3>
+                <d4>Ei. Non ti ho mai visto da queste parti.</d4>
+
+	</dialog>
 </vincentmangiolli>
 <nicolaiavmenise>
 	<dialog>
-		<d1>Ciao. Tu devi essere il ragazzo nuovo di cui mi ha parlato Cinzia.</d1>
-		<d2>Io sono Avmenise. Sono il tuo professore di informatica.</d2>
-		<d3>Devi essere un grande fan di Excel, proprio come me, vero?</d3>
-		<d4>Beh, lasciatelo dire ragazzino. Mi sembri uno che non sa nemmeno come si accendere un computer!</d4>
-		<d5>Ma non temere, piccolo. Io, il grande Armenise, ti insegnerò ogni segreto di Excel!</d5>
-		<d6>... e di informatica.</d6>
-		<d7>E, se seguerai ogni mio consiglio, forse un giorno..<d7>
-		<d8>...potrai riuscire a...<d8>
-		<d9>Cambiare lo sfondo del computer? Alzare il volume degli altoparlanti? Non ti sembra eccitante?!</d9>
-		<d10>COOOME?! Riesci già a fare tutte queste cose e vorresti imparare a programmare?!</d10>
-		<d11>Wo wo wo wo wo, non mi avevano detto che eri il figlio di Bill Gates ahahah</d11>
-		<d12>Ci vediamo in laboratorio, ragazzino.</d12>	
+		<d1>Buongiorno ragazzo.</d1>
+		<d2>Qualcuno ha mangiato in laboratorio</d2>
+		<d3>Excel migliora in continuazione, come il registro.</d3>
 	</dialog>
 </nicolaiavmenise>
