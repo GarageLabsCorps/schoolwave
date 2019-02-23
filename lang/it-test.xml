@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<intro>
+	<p>Presenta:</p>
+</intro>
+<menu>
+	<tit>MENU'</tit>
+	<new>Nuova partita</new>
+	<load>Carica partita</load>
+	<opt>Opzioni</opt>
+	<exit>Esci</exit>
+</menu>
+<instr>
+	<ettalk>'E' per parlare</ettalk>
+</instr>
+<fight>
+	<win>vince</win>
+</fight>
 <vincentmangiolli>
 	<dialog>
 		<d1>Ciao suino!</d1>
