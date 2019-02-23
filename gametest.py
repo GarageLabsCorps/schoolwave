@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os,sys,pygame,random,math
+import os,sys,pygame,random,math,operator
 
 def x2d(file):
 	xmlf=open(file,"r")
@@ -363,7 +363,7 @@ def main():
 	pygame.font.init()
 	logo=pygame.image.load("logo.png")
 	pygame.display.set_icon(logo)
-	pygame.display.set_caption("VaporSchool")
+	pygame.display.set_caption("SchoolWave")
 
 	global info;info=pygame.display.Info()
 	global ww;ww=info.current_w/3
