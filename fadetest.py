@@ -8,7 +8,7 @@ def main():
 	pygame.font.init()
 	logo=pygame.image.load("logo.png")
 	pygame.display.set_icon(logo)
-	pygame.display.set_caption("VaporSchool")
+	pygame.display.set_caption("SchoolWave")
 
 	info=pygame.display.Info()
 	ww=info.current_w/3
