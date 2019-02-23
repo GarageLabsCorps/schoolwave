@@ -130,7 +130,7 @@ def main():
 	pygame.font.init()
 	logo=pygame.image.load("logo.png")
 	pygame.display.set_icon(logo)
-	pygame.display.set_caption("VaporSchool")
+	pygame.display.set_caption("SchoolWave")
 
 	global info;info=pygame.display.Info()
 	global ww;ww=info.current_w/3
@@ -153,11 +153,13 @@ def main():
 	pcpu001n="texture/fig/people/vincentmangiolli/normal.png";thingsdata["pcpu001n"]=pcpu001n
 	pcpu001x=random.randint(minw,maxw);thingsdata["pcpu001x"]=pcpu001x
 	pcpu001y=random.randint(minh,maxh);thingsdata["pcpu001y"]=pcpu001y
+	pcpu001tmpdest=["",""] # temp destination
 
 	pcpu002l="texture/fig/people/nicolaiavmenise/little.png";thingsdata["pcpu002l"]=pcpu002l
 	pcpu002n="texture/fig/people/nicolaiavmenise/normal.png";thingsdata["pcpu002n"]=pcpu002n
 	pcpu002x=random.randint(minw,maxw);thingsdata["pcpu002x"]=pcpu002x
 	pcpu002y=random.randint(minh,maxh);thingsdata["pcpu002y"]=pcpu002y
+	pcpu002tmpdest=["",""] # temp destination
 
 	pbodyl=ri("texture/bodylittle/")
 	pfacel=ri("texture/facelittle/")
@@ -175,7 +177,7 @@ def main():
 	global playerx;playerx=120
 	global playery;playery=160
 	l=0
-	psd([pcpu001l],pcpu001x,pcpu001y,screen)
+	psd([pcpu001l],thingsdata["pcpu001x"],thingsdata["pcpu001y"],screen)
 	psd([pbodyl,pfacel,peyel,phairl,pmouthl,ppants,pshoe],playerx,playery,screen)
 	pygame.display.flip()
 
@@ -241,16 +243,57 @@ def main():
 				pygame.mixer.music.play()
 				music=True
 
-		if near(pcpu001x,pcpu001y):
-			txt("'E' to talk",30,0,0)
+		# pcpu001 destination
+		if pcpu001tmpdest[0]=="":
+			pcpu001tmpdest[0]=random.randint(minw,maxw) # temp X destination for pcpu001
+			pcpu001tmpdest[1]=random.randint(minh,maxh) # temp Y destination for pcpu001
+		# X destination
+		if pcpu001tmpdest[0]-1<thingsdata["pcpu001x"]<pcpu001tmpdest[0]+1:
+			pcpu001tmpdest[0]=random.randint(minw,maxw)
+		else:
+			if thingsdata["pcpu001x"]>pcpu001tmpdest[0]:
+				thingsdata["pcpu001x"]-=.3
+			else:
+				thingsdata["pcpu001x"]+=.3
+		# Y destination
+		if pcpu001tmpdest[1]-1<thingsdata["pcpu001y"]<pcpu001tmpdest[1]+1:
+			pcpu001tmpdest[1]=random.randint(minh,maxh)
+		else:
+			if thingsdata["pcpu001y"]>pcpu001tmpdest[1]:
+				thingsdata["pcpu001y"]-=.3
+			else:
+				thingsdata["pcpu001y"]+=.3
+		# pcpu002 destination
+		if pcpu002tmpdest[0]=="":
+			pcpu002tmpdest[0]=random.randint(minw,maxw) # temp X destination for pcpu001
+			pcpu002tmpdest[1]=random.randint(minh,maxh) # temp Y destination for pcpu001
+		# X destination
+		if pcpu002tmpdest[0]-1<thingsdata["pcpu002x"]<pcpu002tmpdest[0]+1:
+			pcpu002tmpdest[0]=random.randint(minw,maxw)
+		else:
+			if thingsdata["pcpu002x"]>pcpu002tmpdest[0]:
+				thingsdata["pcpu002x"]-=.3
+			else:
+				thingsdata["pcpu002x"]+=.3
+		# Y destination
+		if pcpu002tmpdest[1]-1<thingsdata["pcpu002y"]<pcpu002tmpdest[1]+1:
+			pcpu002tmpdest[1]=random.randint(minh,maxh)
+		else:
+			if thingsdata["pcpu002y"]>pcpu002tmpdest[1]:
+				thingsdata["pcpu002y"]-=.3
+			else:
+				thingsdata["pcpu002y"]+=.3
+
+		if near(thingsdata["pcpu001x"],thingsdata["pcpu001y"]):
+			txt(langr["instr"]["ettalk"],30,0,0)
 			if pressed[pygame.K_e]:
 				talk(pcpu001n,random.choice(list(langr["vincentmangiolli"]["dialog"].items()))[1])
-		if near(pcpu002x,pcpu002y):
-			txt("'E' to talk",30,0,0)
+		if near(thingsdata["pcpu002x"],thingsdata["pcpu002y"]):
+			txt(langr["instr"]["ettalk"],30,0,0)
 			if pressed[pygame.K_e]:
 				talk(pcpu002n,random.choice(list(langr["nicolaiavmenise"]["dialog"].items()))[1].replace("R","V").replace("r","v"))
 
-		thingsd={"player":playery,"pcpu001":pcpu001y,"pcpu002":pcpu002y}
+		thingsd={"player":playery,"pcpu001":thingsdata["pcpu001y"],"pcpu002":thingsdata["pcpu002y"]}
 		thingsd=sorted(thingsd.items(),key=operator.itemgetter(1))
 		things=list(thingsd)
 

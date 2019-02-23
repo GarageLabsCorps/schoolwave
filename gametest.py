@@ -144,9 +144,9 @@ def intro():
 		image=pygame.image.load("glc.png")
 		image.set_alpha(alpha)
 		screen.blit(image,(ww/2-150/2,wh/2-150/2))
-		prs=(pygame.font.Font("font/kongtext.ttf",30)).render("Presenta:",False,(255,255,255))
+		prs=(pygame.font.Font("font/kongtext.ttf",30)).render(langr["intro"]["p"],False,(255,255,255))
 		prs.set_alpha(alpha2)
-		screen.blit(prs,(ww/2-(30*len("Presenta:"))/2,wh/2-30/2))
+		screen.blit(prs,(ww/2-(30*len(langr["intro"]["p"]))/2,wh/2-30/2))
 		image=pygame.image.load("logo.png")
 		image.set_alpha(alpha3)
 		screen.blit(image,(ww/2-300/2,wh/2-300/2))
@@ -182,10 +182,15 @@ def intro():
 		pygame.display.flip()
 def menu():
 	screen.fill((255,255,255))
-	txt("MENU'",30,ww/2-15,0)
-	txt("Nuova partita",20,ww/2-15,35)
-	txt("Carica partita",20,ww/2-15,60)
-	txt("Esci",20,ww/2-15,85)
+	screen.blit(pygame.transform.scale(pygame.image.load("menu.png"),(ww,wh)),(0,0))
+	b=pygame.Surface((ww,wh))
+	b.set_alpha(180)
+	b.fill((0,0,0))
+	screen.blit(b,(0,0))
+	txtw(langr["menu"]["tit"],30,0,0)
+	txtw(langr["menu"]["new"],20,ww-len(langr["menu"]["new"])*20,35)
+	txtw(langr["menu"]["load"],20,ww-len(langr["menu"]["load"])*20,60)
+	txtw(langr["menu"]["exit"],20,ww-len(langr["menu"]["exit"])*20,85)
 	pygame.display.flip()
 
 	o=1
@@ -198,11 +203,22 @@ def menu():
 		elif o<1:
 			o=3
 		screen.fill((255,255,255))
-		pygame.draw.rect(screen,(255,255,145),(ww/2-15,o*25+10,300,20))
-		txt("MENU'",30,ww/2-15,0)
-		txt("Nuova partita",20,ww/2-15,35)
-		txt("Carica partita",20,ww/2-15,60)
-		txt("Esci",20,ww/2-15,85)
+		screen.blit(pygame.transform.scale(pygame.image.load("menu.png"),(ww,wh)),(0,0))
+		screen.blit(b,(0,0))
+		pygame.draw.rect(screen,(255,255,145),(ww,o*25+10,-300,20))
+		txtw(langr["menu"]["tit"],30,0,0)
+		if o==1:
+			txt(langr["menu"]["new"],20,ww-len(langr["menu"]["new"])*20,35)
+		else:
+			txtw(langr["menu"]["new"],20,ww-len(langr["menu"]["new"])*20,35)
+		if o==2:
+			txt(langr["menu"]["load"],20,ww-len(langr["menu"]["load"])*20,60)
+		else:
+			txtw(langr["menu"]["load"],20,ww-len(langr["menu"]["load"])*20,60)
+		if o==3:
+			txt(langr["menu"]["exit"],20,ww-len(langr["menu"]["exit"])*20,85)
+		else:
+			txtw(langr["menu"]["exit"],20,ww-len(langr["menu"]["exit"])*20,85)
 		pygame.display.flip()
 		pressed=pygame.key.get_pressed()
 		#if pressed[pygame.K_w]:
@@ -336,11 +352,11 @@ def game():
 				music=True
 
 		if near(pcpu001x,pcpu001y):
-			txt("'E' to talk",30,0,0)
+			txt(langr["instr"]["ettalk"],30,0,0)
 			if pressed[pygame.K_e]:
 				talk(pcpu001n,random.choice(list(langr["vincentmangiolli"]["dialog"].items()))[1])
 		if near(pcpu002x,pcpu002y):
-			txt("'E' to talk",30,0,0)
+			txt(langr["instr"]["ettalk"],30,0,0)
 			if pressed[pygame.K_e]:
 				talk(pcpu002n,random.choice(list(langr["nicolaiavmenise"]["dialog"].items()))[1].replace("R","V").replace("r","v"))
 
