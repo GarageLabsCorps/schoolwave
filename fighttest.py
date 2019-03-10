@@ -162,6 +162,7 @@ def pvc():
 	p2s=p2+"fs.png"
 	p2a=p2n
 	p2l=100
+	p2f=""
 
 	pcy=int((wh-150)/2)
 
@@ -171,10 +172,10 @@ def pvc():
 	lbl=ww/3
 	pygame.draw.rect(screen,(255,0,0),(10,10,lbl,10))
 	pygame.draw.rect(screen,(0,255,0),(10,10,lbl,10))
-	txt(p1.split("/")[-2],10,10,10)
+	#txt(p1.split("/")[-2],10,10,10)
 	pygame.draw.rect(screen,(255,0,0),(ww-10-lbl,10,lbl,10))
 	pygame.draw.rect(screen,(0,255,0),(ww-10-lbl,10,lbl,10))
-	txt(p2.split("/")[-2],10,ww-10-lbl,10)
+	#txt(p2.split("/")[-2],10,ww-10-lbl,10)
 
 	running=True
 	while running:
@@ -206,14 +207,22 @@ def pvc():
 
 			pygame.draw.rect(screen,(255,0,0),(10,10,lbl,10))
 			pygame.draw.rect(screen,(0,255,0),(10,10,alb1,10))
-			txt(p1.split("/")[-2],10,10,10)
+			#txt(p1.split("/")[-2],10,10,10)
 
 			pygame.draw.rect(screen,(255,0,0),(ww-10-lbl,10,lbl,10))
 			pygame.draw.rect(screen,(0,255,0),(ww-10-lbl,10,alb2,10))
-			txt(p2.split("/")[-2],10,ww-10-lbl,10)
+			#txt(p2.split("/")[-2],10,ww-10-lbl,10)
 
 			p1a=p1n
-			p2a=p2n
+			if p2f=="":
+				p2a=p2n
+			else:
+				if int(p2f.split("|")[1])>0:
+					p2a=p2f.split("|")[0]
+					p2f=p2f.split("|")[0]+"|"+str(int(p2f.split("|")[1])-1)
+				else:
+					p2a=p2n
+					p2f=""
 
 			pressed=pygame.key.get_pressed()
 			if pressed[pygame.K_d]:
@@ -265,12 +274,14 @@ def pvc():
 				if random.randint(0,1000)>=1000:
 					if p1a!=p1s:
 						p2a=p2p
+						p2f=p2p+"|200"
 						if p1a!=p1s:
 							p1l-=5
 							if p1x>0:
 								p1x-=30
 					else:
 						p2a=p2k
+						p2f=p2k+"|200"
 						p1l-=2
 						if p1x>0:
 							p1x-=30
@@ -313,10 +324,10 @@ def pvp():
 	lbl=ww/3
 	pygame.draw.rect(screen,(255,0,0),(10,10,lbl,10))
 	pygame.draw.rect(screen,(0,255,0),(10,10,lbl,10))
-	txt(p1.split("/")[-2],10,10,10)
+	#txt(p1.split("/")[-2],10,10,10)
 	pygame.draw.rect(screen,(255,0,0),(ww-10-lbl,10,lbl,10))
 	pygame.draw.rect(screen,(0,255,0),(ww-10-lbl,10,lbl,10))
-	txt(p2.split("/")[-2],10,ww-10-lbl,10)
+	#txt(p2.split("/")[-2],10,ww-10-lbl,10)
 
 	running=True
 	while running:
@@ -348,11 +359,11 @@ def pvp():
 
 			pygame.draw.rect(screen,(255,0,0),(10,10,lbl,10))
 			pygame.draw.rect(screen,(0,255,0),(10,10,alb1,10))
-			txt(p1.split("/")[-2],10,10,10)
+			#txt(p1.split("/")[-2],10,10,10)
 
 			pygame.draw.rect(screen,(255,0,0),(ww-10-lbl,10,lbl,10))
 			pygame.draw.rect(screen,(0,255,0),(ww-10-lbl,10,alb2,10))
-			txt(p2.split("/")[-2],10,ww-10-lbl,10)
+			#txt(p2.split("/")[-2],10,ww-10-lbl,10)
 
 			p1a=p1n
 			p2a=p2n
