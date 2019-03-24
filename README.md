@@ -1,4 +1,4 @@
-### SchoolWave
+# SchoolWave
 
 Schoolwave is a game set in a school written in Python where you can taste the feelings of a new student in a new school.
 
