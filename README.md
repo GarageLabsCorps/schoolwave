@@ -24,11 +24,11 @@ The game is pretty dynamic, then to add things, like a new random t-shirt, just 
 
 ### Screenshots
 
-![Dialog on Linux](screenshot/ss001.png "Dialog on roomtest.py")
+![Dialog in roomtest.py on Linux](screenshot/ss001.png "Dialog in roomtest.py on Linux")
 
-![Menù on Windows10](screenshot/ss002.png "Menù on menutest.py")
+![Menù in menutest.py on Windows10](screenshot/ss002.png "Menù in menutest.py on Windows10")
 
-![Fight on Windows7](screenshot/ss003.png "Fight on fighttest.py")
+![Fight in fighttest.py on Windows7](screenshot/ss003.png "Fight in fighttest.py on Windows7")
 
 ### Further informations
 
