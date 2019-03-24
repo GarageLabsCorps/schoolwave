@@ -20,7 +20,7 @@ If you're using 32bit hardware can download the official pygame lib 32bit for py
 
 ### How to add things
 
-The game is pretty dynamic, then to add things, like a new random t-shirt, just add a png image 150x150px in "texture/body/", it will appear in the game.
+The game is pretty dynamic, then to add things, like a new random t-shirt, just add a png image 150x150px in "texture/body/", it will appear in the game. Or if you want to add dialog just go in "lang/en.xml" for all the strings in english in the game or go in "lang/en-test.xml" for all the strings in english in the test game.
 
 ### Screenshots
 
