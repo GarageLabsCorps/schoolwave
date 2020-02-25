@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<intro>
+	<tit>SchoolWave</tit>
+	<p>Presenta:</p>
+</intro>
+<menu>
+	<tit>SchoolWave - Menu</tit>
+	<new>Nuova partita</new>
+	<load>Carica partita</load>
+	<opt>Opzioni</opt>
+	<exit>Esci</exit>
+</menu>
+<editor>
+	<tit>Crea il tuo personaggio</tit>
+	<hair>Capelli</hair>
+	<face>Faccia</face>
+	<eye>Occhi</eye>
+	<brow>Sopracciglia</brow>
+	<nose>Naso</nose>
+	<mouth>Bocca</mouth>
+	<body>Corpo</body>
+	<pants>Pantaloni</pants>
+	<shoes>Scarpe</shoes>
+</editor>
